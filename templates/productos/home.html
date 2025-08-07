@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de productos{% endblock %}
+
+{% block content %}
+<div class="container-header d-flex flex-row justify-content-end">
+    <div class="container-contenido-header d-flex flex-column">
+        <p class="titulo1 w-100" style="color: #2B2D42;">Mountain Bike Gravity</p>
+        <p class="subtitulo w-100" style="color: #2B2D42;">Rodado 29, 21 velocidades, llantas doble pared y accesorios
+            de regalo</p>
+        <a href="">Ver producto</a>
+    </div>
+</div>
+<div class="container-destacados d-flex w-100">
+    <div class="container-producto producto-1">
+        <p class="titulo" style="text-align: start;">Partes y repuestos</p>
+        <p class="subtitulo" style="text-align: start;">Lorem ipsum dolor sit nventore nostra quod saepe dicta!</p>
+    </div>
+    <div class="container-producto producto-2">
+        <p class="titulo" style="text-align: start;">Accesorios y herramientas</p>
+        <p class="subtitulo" style="text-align: start;">Lorem ipsum dolor sit nventore nostra quod saepe dicta!</p>
+    </div>
+</div>
+<div class="swiper">
+    <p class="titulo" style="color: #2B2D42;">Bicicletas</p>
+    <div class="swiper-wrapper">
+        {% for producto in productos %}
+        <div class="swiper-slide" style="background-image:url('{{ producto.imagen.url }}');">
+            <div class="info">
+                <span class="subtitulo" title="Climber">{{ producto.nombre }}</span>
+                <span class="subtitulo" title="Climber">${{ producto.precio }}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+<div class="swiper">
+    <p class="titulo" style="color: #2B2D42;">Accesorios</p>
+    <div class="swiper-wrapper">
+        {% for producto in productos %}
+        <div class="swiper-slide" style="background-image:url('{{ producto.imagen.url }}');">
+            <div class="info">
+                <span class="subtitulo" title="Climber">{{ producto.nombre }}</span>
+                <span class="subtitulo" title="Climber">${{ producto.precio }}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+<div class="swiper">
+    <p class="titulo" style="color: #2B2D42;">Respuestos</p>
+    <div class="swiper-wrapper">
+        {% for producto in productos %}
+        <div class="swiper-slide" style="background-image:url('{{ producto.imagen.url }}');">
+            <div class="info">
+                <span class="subtitulo" title="Climber">{{ producto.nombre }}</span>
+                <span class="subtitulo" title="Climber">${{ producto.precio }}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script>
+    const cantidadSlides = Number("{{ productos|length|default:0 }}");
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var swiper = new Swiper(".swiper", {
+            effect: "coverflow",
+            loop: false,
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "1",
+            initialSlide: 0,
+            loopedSlides: cantidadSlides,
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true
+            },
+            pagination: {
+                el: ".swiper-pagination"
+            },
+            breakpoints: {
+                320: { slidesPerView: 1.5 },
+                580: { slidesPerView: 2 },
+                767: { slidesPerView: 3 },
+                992: { slidesPerView: 3.5 },
+                1200: { slidesPerView: 4 },
+                1400: { slidesPerView: 4.5 }
+            },
+            on: {
+                init: function () {
+                    this.slideToLoop(0, 0); // Ir a la primera slide real sin animación
+                }
+            }
+        });
+    });
+</script>
+
+{% endblock %}

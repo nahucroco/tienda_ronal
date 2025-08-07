@@ -1,0 +1,73 @@
+<!-- Navbar -->
+<nav class="navbar fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">Tienda de Bicis</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <!-- Icono personalizado -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0,0,256,256">
+                <g fill="#f0f0f0">
+                    <g transform="scale(5.12,5.12)">
+                        <path
+                            d="M3,9c-0.36,-0.005 -0.7,0.18 -0.88,0.5c-0.18,0.31 -0.18,0.7 0,1.01c0.18,0.31 0.52,0.5 0.88,0.5h44c0.36,0.005 0.7,-0.18 0.88,-0.5c0.18,-0.31 0.18,-0.7 0,-1.01c-0.18,-0.31 -0.52,-0.5 -0.88,-0.5zM3,24c-0.36,-0.005 -0.7,0.18 -0.88,0.5c-0.18,0.31 -0.18,0.7 0,1.01c0.18,0.31 0.52,0.5 0.88,0.5h44c0.36,0.005 0.7,-0.18 0.88,-0.5c0.18,-0.31 0.18,-0.7 0,-1.01c-0.18,-0.31 -0.52,-0.5 -0.88,-0.5zM3,39c-0.36,-0.005 -0.7,0.18 -0.88,0.5c-0.18,0.31 -0.18,0.7 0,1.01c0.18,0.31 0.52,0.5 0.88,0.5h44c0.36,0.005 0.7,-0.18 0.88,-0.5c0.18,-0.31 0.18,-0.7 0,-1.01c-0.18,-0.31 -0.52,-0.5 -0.88,-0.5z">
+                        </path>
+                    </g>
+                </g>
+            </svg>
+        </button>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header" style="background-color: #212529;">
+                <button type="button"  data-bs-dismiss="offcanvas" aria-label="Close"><svg
+                        xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24"
+                        viewBox="0,0,256,256">
+                        <g fill="#f0f0f0" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                            stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                            font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                            style="mix-blend-mode: normal">
+                            <g transform="scale(5.12,5.12)">
+                                <path
+                                    d="M7.71875,6.28125l-1.4375,1.4375l17.28125,17.28125l-17.28125,17.28125l1.4375,1.4375l17.28125,-17.28125l17.28125,17.28125l1.4375,-1.4375l-17.28125,-17.28125l17.28125,-17.28125l-1.4375,-1.4375l-17.28125,17.28125z">
+                                </path>
+                            </g>
+                        </g>
+                    </svg></button>
+            </div>
+
+            <div class="offcanvas-body" style="background-color: #212529;">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/' %}active{% endif %}"
+                            href="{% url 'home' %}">Inicio</a>
+                    </li>
+
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/agregar/' %}active{% endif %}"
+                            href="{% url 'agregar_producto' %}">
+                            Agregar producto
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <form method="post" action="{% url 'logout' %}" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="nav-link btn btn-link" style="display: inline; padding: 0;">
+                                Cerrar sesión
+                            </button>
+                        </form>
+                    </li>
+
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/login/' %}active{% endif %}"
+                            href="{% url 'login' %}">
+                            Iniciar sesión
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

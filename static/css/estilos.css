@@ -1,0 +1,213 @@
+/* Estilos globales */
+
+:root {
+  --color-principal: #1D3557;
+  --color-secundario: #A8DADC;
+  --color-fondo: #F1FAEE;
+  --color-texto: #2B2D42;
+  --color-acento: #E76F51;
+}
+
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+.titulo1 {
+    font-size: 70px;
+    font-weight: 700;
+    color: #f0f0f0;
+    text-align: center;
+    margin: 0;
+    line-height: normal;
+    font-family: "Poppins", sans-serif;
+}
+
+.titulo {
+    font-size: 50px;
+    font-weight: 700;
+    color: #f0f0f0;
+    text-align: center;
+    margin: 0;
+    line-height: normal;
+    font-family: "Poppins", sans-serif;
+}
+
+.subtitulo {
+    font-size: 25px;
+    font-weight: 500;
+    color: #f0f0f0;
+    text-align: center;
+    margin: 0;
+    line-height: normal;
+    font-family: "Lato", sans-serif;
+}
+
+/* Barra de navegación */
+
+.navbar {
+    background-color: #2B2D42;
+}
+
+.navbar .container-fluid .navbar-brand {
+    color: #f0f0f0;
+}
+
+.navbar .container-fluid .navbar-toggler {
+    border: none;
+}
+
+.navbar .offcanvas a {
+    color: #f0f0f075 !important;
+}
+
+.navbar .offcanvas a.nav-link.active {
+    color: #f0f0f0 !important;
+}
+
+.navbar .offcanvas .offcanvas-header {
+    justify-content: end !important;
+}
+
+.navbar .offcanvas .offcanvas-header button {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+/* Header */
+
+.container-header {
+    width: 100%;
+    height: 600px;
+    background-color: #c4e7c8;
+    background-image: url("../img/bicicleta_home.png");
+    background-size: 1000px;
+    background-position: -190px 20px;
+    background-repeat: no-repeat;
+}
+
+.container-header .container-contenido-header {
+    width: 40%;
+    padding-right: 5%;
+    justify-content: center;
+    align-items: start;
+}
+
+.container-header .container-contenido-header p {
+    text-align: start;
+}
+
+.container-header .container-contenido-header a {
+    text-decoration: none;
+    color: #212529;
+    background-color: transparent;
+    border: 1px solid #212529;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Productos destacados */
+
+.container-destacados {
+    gap: 20px;
+    padding: 20px;
+    flex-direction: row;
+}
+
+.container-destacados .container-producto {
+    background-color: aqua;
+    height: 23rem;
+    display: flex;
+    width: 100%;
+    padding: 30px;
+    gap: 10px;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+}
+
+.container-destacados .container-producto.producto-1 {
+    background-color: #1D3557;
+    background-image: url("../img/horquilla_home.png");
+    background-size: 250px;
+    background-position: 80% 40%;
+    background-repeat: no-repeat;
+}
+
+.container-destacados .container-producto.producto-2 {
+    background-color: #E76F51;
+    background-image: url("../img/zapatilla_home.png");
+    background-size: 450px;
+    background-position: 100% -50%;
+    background-repeat: no-repeat;
+}
+
+/* Para pantallas de hasta 768px (tablets y móviles) */
+
+@media (max-width: 768px) {
+
+    /* Globales */
+
+    .titulo1 {
+        font-size: 45px !important;
+        text-align: center;
+        line-height: normal;
+    }
+
+    .titulo {
+        font-size: 30px !important;
+        text-align: center;
+        line-height: normal;
+    }
+
+    .subtitulo {
+        font-size: 18px !important;
+        text-align: center;
+    }
+
+    /* Header */
+
+    .container-header {
+        width: 100%;
+        height: 600px;
+        background-size: 900px;
+        background-position: -470px 190px;
+        background-repeat: no-repeat;
+        padding: 15px;
+    }
+
+    .container-header .container-contenido-header {
+        width: 100%;
+        padding: 0;
+        justify-content: start;
+        margin-top: 30px;
+        align-items: end;
+    }
+
+    .container-header .container-contenido-header p {
+        text-align: end;
+    }
+
+    /* Productos destacados */
+
+    .container-destacados {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .container-destacados .container-producto {
+        height: 250px;
+        padding: 15px;
+    }
+
+    .container-destacados .container-producto.producto-1 {
+        background-size: 110px;
+        background-position: 80% -30%;
+    }
+
+    .container-destacados .container-producto.producto-2 {
+        background-size: 200px;
+        background-position: 100% 110%;
+    }
+}
